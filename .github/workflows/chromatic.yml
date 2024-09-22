@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           #👇 Sets the version of Node.js to use
-          node-version: 18
+          node-version: 16
       - name: Install dependencies
         run: yarn
       - name: Install Playwright
@@ -21,8 +21,7 @@ jobs:
       - name: Build Storybook
         run: yarn build-storybook --quiet
       - name: Serve Storybook and run tests
-        run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+        run: npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
             "npx wait-on tcp:6006 && yarn test-storybook"
   visual-tests:
