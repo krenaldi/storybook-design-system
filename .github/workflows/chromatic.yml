@@ -20,8 +20,6 @@ jobs:
         run: npx playwright install --with-deps
       - name: Build Storybook
         run: yarn build-storybook --quiet
-      - name: Install http-server
-        run: npx http-server
       - name: Serve Storybook and run tests
         run: |
             npx concurrently -s first -n SB,TEST -c magenta,blue \
