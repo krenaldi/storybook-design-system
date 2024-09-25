@@ -25,3 +25,12 @@ yarn-error.log*
 *storybook.log
 dist
 .env
+
+# Yarn stuff
+**/.yarn/**
+!/**/.yarn/releases
+!/**/.yarn/plugins
+!/**/.yarn/sdks
+!/**/.yarn/versions
+!/**/.yarn/patches
+/**/.pnp.*
